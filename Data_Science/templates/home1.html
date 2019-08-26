@@ -1,0 +1,33 @@
+{#<!DOCTYPE html>#}
+{#<html lang="en">#}
+{#<head>#}
+{#    <meta charset="UTF-8">#}
+{#    <title>Title</title>#}
+{#</head>#}
+{#<body>#}
+{#    {% block content %}#}
+{#        <form method="post">#}
+{#        {% csrf_token %}#}
+{#        {{ form }}#}
+{#        <button type="submit" class="btn btn-success">Save Flat Info</button>#}
+{#         </form>#}
+{#    {% endblock %}#}
+{#</body>#}
+{#</html>#}
+
+{% extends "home2.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+    <div class="content-section">
+        <form method="post">
+            {% csrf_token %}
+            <fieldset class="form-group">
+                <legend class="border-bottom mb-4">Prediction Form</legend>
+                {{ form|crispy }}
+            </fieldset>
+            <div class="form-group">
+                <button class="btn btn-outline-info" type="submit">Enter your parameters</button>
+            </div>
+        </form>
+    </div>
+{% endblock content%}
